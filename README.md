@@ -29,7 +29,7 @@ composer require unicodeveloper/novu
 
 * [Installation](#installation)
 * [Usage](#usage)
-    * [Novu API Reference](https://docs.novu.co/api/overview/)
+    * [Novu API Reference](https://docs.novu.co/api-reference/)
     * [Events](#events)
     * [Subscribers](#subscribers)
     * [Topics](#topics)
@@ -169,6 +169,24 @@ $subscriber = $novu->createSubscriber([
     'phone' => '<insert-phone>', //optional
     'avatar' => '<insert-avatar>', // optional
 ])->toArray();
+
+// Bulk create subscribers
+$response = $novu->bulkCreateSubscribers([
+    [
+        'subscriberId' => 'SUBSCRIBER_IDENTIFIER>',
+        'email' => '<insert-email>', // optional
+        'firstName' => '<insert-firstname>', // optional
+        'lastName' => '<insert-lastname>', // optional
+        'avatar' => '<insert-avatar>', // optional
+    ],
+    [
+        'subscriberId' => 'SUBSCRIBER_IDENTIFIER>',
+        'email' => '<insert-email>', // optional
+        'firstName' => '<insert-firstname>', // optional
+        'lastName' => '<insert-lastname>', // optional
+        'avatar' => '<insert-avatar>', // optional
+    ],
+]);
 
 // Get subscriber
 $subscriber = $novu->getSubscriber($subscriberId)->toArray();
